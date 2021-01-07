@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct Landmark: Hashable, Codable {
-    var id: Int
+struct Landmark: Hashable, Codable, Identifiable { //conform to identifiable to be used in list
+    var id: Int // satisfies the requirement of identifiable
     var name: String
     var park: String
     var state: String
