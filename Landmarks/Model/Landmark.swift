@@ -9,12 +9,13 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct Landmark: Hashable, Codable, Identifiable { //conform to identifiable to be used in list
+struct Landmark: Hashable, Codable, Identifiable { //conform to codable to encode/decode with external representations such as JSON, identifiable to be used in list
     var id: Int // satisfies the requirement of identifiable
     var name: String
     var park: String
     var state: String
     var description: String
+    var isFavorite: Bool
     
     // make image name property private because users of the struct care about the image only
     private var imageName: String

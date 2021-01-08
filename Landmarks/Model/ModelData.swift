@@ -6,8 +6,19 @@
 //
 
 import Foundation
+import Combine
 
-var landmarks: [Landmark] = load("landmarkData.json")
+/*
+ final prevents the class from being inherited or overridden
+ SwiftUI subscribes to ObservableObject and updates any views that depend on this data
+*/
+final class ModelData: ObservableObject {
+    // publish any changes to the landmarks data 
+    @Published var landmarks: [Landmark] = load("landmarkData.json")
+    
+    var hikes: [Hike] = load("hikeData.json")
+
+}
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
