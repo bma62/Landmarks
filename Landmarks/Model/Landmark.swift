@@ -16,6 +16,14 @@ struct Landmark: Hashable, Codable, Identifiable { //conform to codable to encod
     var state: String
     var description: String
     var isFavorite: Bool
+    var isFeatured: Bool
+    
+    var category: Category
+    enum Category: String, CaseIterable, Codable { // rely on Codable to load the data 
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
+    }
     
     // make image name property private because users of the struct care about the image only
     private var imageName: String

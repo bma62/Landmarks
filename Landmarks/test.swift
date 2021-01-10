@@ -5,7 +5,9 @@ class DataSource: ObservableObject {
 }
 
 struct Counter: View {
-  @StateObject var dataSource = DataSource()
+//  @StateObject var dataSource = DataSource() // this doesn't reset when view reloads
+    @ObservedObject var dataSource = DataSource() // this resets every time view reloads
+
 
   var body: some View {
     VStack {
