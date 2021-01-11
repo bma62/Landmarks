@@ -31,6 +31,10 @@ struct Landmark: Hashable, Codable, Identifiable { //conform to codable to encod
         Image(imageName) // load the image from asset catalog
     }
     
+    var featureImage: Image? {
+        isFeatured ? Image(imageName + "_feature") : nil
+    }
+    
     // create our own Coordinates struct to match the storage in the JSON data structure
     private var coordinates: Coordinates
     
